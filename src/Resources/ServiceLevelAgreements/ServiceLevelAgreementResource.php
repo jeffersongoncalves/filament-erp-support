@@ -2,10 +2,8 @@
 
 namespace JeffersonGoncalves\FilamentErp\Support\Resources\ServiceLevelAgreements;
 
-use BackedEnum;
+use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use JeffersonGoncalves\Erp\Support\Support\ModelResolver;
 use JeffersonGoncalves\FilamentErp\Support\FilamentErpSupportPlugin;
@@ -18,7 +16,7 @@ use JeffersonGoncalves\FilamentErp\Support\Resources\ServiceLevelAgreements\Tabl
 
 class ServiceLevelAgreementResource extends Resource
 {
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedClipboardDocumentCheck;
+    protected static ?string $navigationIcon = 'heroicon-o-clipboard-document-check';
 
     protected static ?int $navigationSort = 2;
 
@@ -38,9 +36,9 @@ class ServiceLevelAgreementResource extends Resource
         }
     }
 
-    public static function form(Schema $schema): Schema
+    public static function form(Form $form): Form
     {
-        return ServiceLevelAgreementForm::configure($schema);
+        return ServiceLevelAgreementForm::configure($form);
     }
 
     public static function table(Table $table): Table
