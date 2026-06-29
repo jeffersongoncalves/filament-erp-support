@@ -3,20 +3,20 @@
 namespace JeffersonGoncalves\FilamentErp\Support\Resources\WarrantyClaims\Schemas;
 
 use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
-use Filament\Schemas\Components\Section;
-use Filament\Schemas\Schema;
+use Filament\Forms\Form;
 use JeffersonGoncalves\Erp\Support\Enums\WarrantyClaimStatus;
 
 class WarrantyClaimForm
 {
-    public static function configure(Schema $schema): Schema
+    public static function configure(Form $form): Form
     {
-        return $schema
+        return $form
             ->columns(null)
-            ->components([
+            ->schema([
                 Section::make('Details')
                     ->schema([
                         TextInput::make('customer_name')
