@@ -2,7 +2,7 @@
 
 namespace JeffersonGoncalves\FilamentErp\Support\Resources\IssueTypes\Tables;
 
-use Filament\Tables\Actions;
+use Filament\Actions;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
@@ -22,11 +22,11 @@ class IssueTypesTable
                     ->toggleable(),
             ])
             ->defaultSort('name')
-            ->actions([
+            ->recordActions([
                 Actions\EditAction::make(),
                 Actions\DeleteAction::make(),
             ])
-            ->bulkActions([
+            ->toolbarActions([
                 Actions\BulkActionGroup::make([
                     Actions\DeleteBulkAction::make(),
                 ]),

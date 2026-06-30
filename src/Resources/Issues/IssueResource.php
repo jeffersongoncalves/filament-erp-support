@@ -2,8 +2,10 @@
 
 namespace JeffersonGoncalves\FilamentErp\Support\Resources\Issues;
 
-use Filament\Forms\Form;
+use BackedEnum;
 use Filament\Resources\Resource;
+use Filament\Schemas\Schema;
+use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use JeffersonGoncalves\Erp\Support\Support\ModelResolver;
 use JeffersonGoncalves\FilamentErp\Support\FilamentErpSupportPlugin;
@@ -15,7 +17,7 @@ use JeffersonGoncalves\FilamentErp\Support\Resources\Issues\Tables\IssuesTable;
 
 class IssueResource extends Resource
 {
-    protected static ?string $navigationIcon = 'heroicon-o-lifebuoy';
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedLifebuoy;
 
     protected static ?int $navigationSort = 10;
 
@@ -35,9 +37,9 @@ class IssueResource extends Resource
         }
     }
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return IssueForm::configure($form);
+        return IssueForm::configure($schema);
     }
 
     public static function table(Table $table): Table
