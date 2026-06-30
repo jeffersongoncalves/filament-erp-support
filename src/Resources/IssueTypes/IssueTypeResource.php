@@ -2,10 +2,8 @@
 
 namespace JeffersonGoncalves\FilamentErp\Support\Resources\IssueTypes;
 
-use BackedEnum;
+use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use JeffersonGoncalves\Erp\Support\Support\ModelResolver;
 use JeffersonGoncalves\FilamentErp\Support\FilamentErpSupportPlugin;
@@ -17,7 +15,7 @@ use JeffersonGoncalves\FilamentErp\Support\Resources\IssueTypes\Tables\IssueType
 
 class IssueTypeResource extends Resource
 {
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedTag;
+    protected static ?string $navigationIcon = 'heroicon-o-tag';
 
     protected static ?int $navigationSort = 1;
 
@@ -37,9 +35,9 @@ class IssueTypeResource extends Resource
         }
     }
 
-    public static function form(Schema $schema): Schema
+    public static function form(Form $form): Form
     {
-        return IssueTypeForm::configure($schema);
+        return IssueTypeForm::configure($form);
     }
 
     public static function table(Table $table): Table

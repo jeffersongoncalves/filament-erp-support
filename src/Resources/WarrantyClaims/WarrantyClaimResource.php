@@ -2,10 +2,8 @@
 
 namespace JeffersonGoncalves\FilamentErp\Support\Resources\WarrantyClaims;
 
-use BackedEnum;
+use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use JeffersonGoncalves\Erp\Support\Support\ModelResolver;
 use JeffersonGoncalves\FilamentErp\Support\FilamentErpSupportPlugin;
@@ -17,7 +15,7 @@ use JeffersonGoncalves\FilamentErp\Support\Resources\WarrantyClaims\Tables\Warra
 
 class WarrantyClaimResource extends Resource
 {
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedShieldCheck;
+    protected static ?string $navigationIcon = 'heroicon-o-shield-check';
 
     protected static ?int $navigationSort = 11;
 
@@ -37,9 +35,9 @@ class WarrantyClaimResource extends Resource
         }
     }
 
-    public static function form(Schema $schema): Schema
+    public static function form(Form $form): Form
     {
-        return WarrantyClaimForm::configure($schema);
+        return WarrantyClaimForm::configure($form);
     }
 
     public static function table(Table $table): Table
